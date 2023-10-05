@@ -1,0 +1,107 @@
+/* Customer Data Display Section Start  */
+
+.customer-data-display-section .customer-data-heading-section {
+    flex-direction: row;
+}
+
+.customer-data-display-section .customer-data-table-heading {
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--primary-blue-color);
+    margin: 14px 0px;
+}
+
+
+.customer-data-display-section .customer-data-container {
+    word-break: break-all;
+}
+
+
+.customer-data-display-section .customer-data-container .index-title {
+    min-width: 62px;
+}
+
+.customer-data-display-section .customer-data-container .name-title {
+    min-width: 100px;
+}
+
+.customer-data-display-section .customer-data-container .email-title {
+    min-width: 200px;
+}
+
+.customer-data-display-section .customer-data-container .address-title {
+    min-width: 253px;
+}
+
+.customer-data-display-section .customer-data-container .status-title {
+    min-width: 100px;
+}
+
+.customer-data-display-section .customer-data-container .edit-btn {
+    min-width: 80px;
+}
+
+.model-close {
+    height: 50px;
+}
+
+.customer-data-display-section .select-status-data {
+    display: flex;
+    width: 221px;
+    position: absolute;
+    right: 0;
+}
+
+.customer-data-display-section .select-status-data .status-selected {
+    height: 43px;
+}
+
+
+.customer-data-display-section .add-customer-img {
+    height: 43px;
+}
+
+.modal-header {
+    background-color: var(--primary-platinum-color);
+    border-bottom: none;
+}
+
+.customer-data-display-section .empty-message-section .message {
+    color: var(--primary-red-color);
+}
+
+.customer-data-display-section .sort-both-direction {
+    margin: 0;
+    position: absolute;
+    left: 45px;
+    color: var(--primary-gray-color);
+}
+
+
+@media screen and (max-width:414px) {
+    .customer-data-display-section .customer-data-table-heading {
+        font-size: 25px;
+
+    }
+
+
+}
+
+@media screen and (max-width:686px) {
+
+    .customer-data-display-section .select-status-data {
+        position: relative;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .customer-data-display-section .select-status-data .status-selected {
+        max-width: 200px;
+    }
+
+    .customer-data-display-section .customer-data-heading-section {
+        flex-direction: column;
+    }
+}
+
+/* Customer Data Display Section End  */

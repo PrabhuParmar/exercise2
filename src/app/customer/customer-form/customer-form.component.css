@@ -1,0 +1,30 @@
+/* customer Form css  */
+.customer-form-section .customer-form-container .customer-form {
+    padding: 0 32px 32px 32px;
+    background-color: var(--primary-platinum-color);
+}
+
+.customer-form-section .customer-form-container .customer-form .form-control,
+.customer-form-section .customer-form-container .customer-form .form-select {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: none;
+    height: 40px;
+}
+
+.customer-form-section .customer-form-container .customer-form-title .form-title {
+    margin: 0;
+    color: var(--primary-blue-color);
+
+}
+
+.customer-form-section .customer-form-container .form-label-status {
+    color: gray;
+}
+
+@media screen and (max-width:417px) {
+    .customer-form-section .customer-form-container .customer-form {
+        min-width: -webkit-fill-available;
+        padding: 20px;
+        margin-top: 0;
+    }
+}

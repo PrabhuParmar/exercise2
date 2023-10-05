@@ -1,0 +1,72 @@
+<!-- Customer Data Display section start  -->
+<div class="container-lg position-relative">
+    <div class="row g-0 customer-data-display-section">
+        <div class="customer-data-heading-section d-flex flex-wrap justify-content-center align-items-center">
+            <span class="customer-data-table-heading">
+                <ng-container>
+                    Customer List
+                </ng-container>
+            </span>
+            <div class="d-flex select-status-data d-flex">
+                <select [(ngModel)]="selectedStatusData" (click)="onStatusDataFilter()"
+                    class="form-select status-selected">
+                    <option value="All" selected>All</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive </option>
+                </select>
+                <div class="add-customer-section" data-bs-toggle="modal" data-bs-target="#customerFormModel"
+                    (click)="addCustomerForm()">
+                    <img src="../../../assets/image/add-customer.png" alt=""
+                        class="add-customer-model add-customer-img">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 g-0 customer-data-container">
+            <div class="table-responsive g-0">
+                <table class="table table table-striped" matSort (matSortChange)="sortNameData($event)">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col" class="index-title">Index</th>
+                            <th scope="col" class="name-title" mat-sort-header="name">
+                                Name
+                                <p *ngIf="sortDirection =='' " class="sort-both-direction"> ⇅ </p>
+                            </th>
+                            <th scope="col" class="email-title">Email</th>
+                            <th scope="col" class="address-title">Address</th>
+                            <th scope="col" class="status-title">Status</th>
+                            <th scope="col" class="edit-btn">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let customer of customerDataCollection let index" #tableRow>
+                            <td> {{customer.id}} </td>
+                            <td class="table-data">
+                                {{customer.name}} </td>
+                            <td class="table-data">{{customer.email}}</td>
+                            <td class="table-data">{{customer.address}}</td>
+                            <td class="table-data">
+                                <span class="badge"
+                                    [style.background-color]="customer.status==='active' ? 'green' : 'red'">{{customer.status}}</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success" (click)="editCustomerData(index)"
+                                    data-bs-toggle="modal" data-bs-target="#customerFormModel">Edit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ng-container>
+                    <div *ngIf="customerDataCollection.length === 0 "
+                        class="d-flex justify-content-around col-12 empty-message-section">
+                        <h2 class="message">No Customer Found</h2>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Customer Data Display section start  -->
+
+<!-- customer Form Data component -->
+<app-customer-form (customerDataCreated)="submitData($event)"></app-customer-form>

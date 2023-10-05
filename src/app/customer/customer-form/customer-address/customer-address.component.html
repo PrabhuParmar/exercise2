@@ -1,0 +1,13 @@
+<!-- customer Form Address  -->
+<div class="customer-address-section">
+    <form [formGroup]="customerFormData">
+        <div class="customer-data customer-form mb-3">
+            <label class="form-label">Address</label>
+            <textarea class="form-control" placeholder="Enter Address" formControlName="address"
+                (focusout)="customerAddressData()" #customeAddress></textarea>
+            <div id="emailHelp" class="form-text error-text"
+                *ngIf="addressValidation && addressValidation.invalid && addressValidation.touched">
+                Enter A Address</div>
+        </div>
+    </form>
+</div>

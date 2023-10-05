@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+:root {
+
+    --primary-blue-color: #2F3C7E;
+    --primary-platinum-color: #e7e7e7;
+    --primary-red-color: red;
+    --primary-gray-color: #757575;
+}
+
+body {
+    background-color: rgb(241 245 249);
+    font-family: 'Merriweather', serif;
+}
+
+.form-label {
+    color: var(--primary-blue-color);
+}
+
+.error-text {
+    color: var(--primary-red-color);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
