@@ -24,6 +24,8 @@ export class CustomerDataDisplayComponent {
   filterData: customerInterface[] = [];
   selectedStatusData = 'All';
   sortDirection: string = '';
+  sortingDirectionData!: boolean | any;
+  nameSortingValue: string = 'empty';
 
 
   customerDataAdded = (customerData: customerInterface) => {
@@ -38,15 +40,16 @@ export class CustomerDataDisplayComponent {
     this.customerNewData.push(customeFormData);
     this.customerDataCollection = this.customerNewData
     this.onStatusDataFilter();
+
   };
 
 
   // Selected Customer Data Set in Form 
   editCustomerData = (selected: any) => {
     this.customerForm.updateDataMode = true
-    console.log(this.customerForm.updateDataMode)
     this.customerForm.submitFormBtn.nativeElement.innerHTML = 'Update';
-    this.customerForm.submitFormBtn.nativeElement.style.backgroundColor = '#008CBA';
+    this.customerForm.submitFormBtn.nativeElement.style.backgroundColor = '#d5d5d5';
+    this.customerForm.formTitle = "Edit Customer";
     this.customerForm.customerForm.setValue({
       name: selected.name,
       email: selected.email,
@@ -68,9 +71,8 @@ export class CustomerDataDisplayComponent {
       status: this.customerForm.status,
     };
 
-    this.customerDataCollection.splice(selectedData.id - 1, 1, newCustomerData);
-    this.customerForm.submitFormBtn.nativeElement.innerHTML = 'Submit';
-    this.customerForm.submitFormBtn.nativeElement.style.backgroundColor = ' #198754'
+    this.customerNewData.splice(selectedData.id - 1, 1, newCustomerData);
+    this.customerDataCollection = this.customerNewData
   };
 
   submitData = (customerData: customerInterface) => {
@@ -82,15 +84,19 @@ export class CustomerDataDisplayComponent {
     this.customerForm.resetForm();
   }
 
-  // Name Data Sorting 
-  sortNameData(sort: Sort) {
-    const data = this.customerDataCollection.slice();
-    this.sortDirection = sort.direction;
-    this.customerDataCollection = data.sort((current, next) => {
-      const sortingDataTo = sort.direction === "asc";
-      return sort.active === 'name' ? compare(current.name.toUpperCase(), next.name.toUpperCase(), sortingDataTo) : 0;
-    });
+  // Name Data Sorting
+
+  // sorting Name 
+  sortingDirection = (nameSort: boolean) => {
+    this.nameSortingValue = 'notEmpty';
+    this.sortingDirectionData = nameSort
+    this.sortNameData();
   };
+
+  sortNameData = () => {
+    this.sortingDirectionData === true ? this.customerDataCollection.sort((current, next) => (current.name.toUpperCase() < next.name.toUpperCase() ? -1 : 1)) : this.customerDataCollection.sort((current, next) => (current.name.toUpperCase() < next.name.toUpperCase() ? 1 : -1));
+  }
+
 
   // Status Data Filter 
   onStatusDataFilter = () => {
@@ -100,10 +106,12 @@ export class CustomerDataDisplayComponent {
       return status === 'All' ? this.customerDataCollection : item.status.toLowerCase() === status.toLowerCase()
     });
     this.customerDataCollection = this.filterData;
-  };
-};
+    this.sortNameData()
 
-const compare = (current: number | string, next: number | string, sortingDataTo: boolean) => {
-  return (current < next ? -1 : 1) * (sortingDataTo ? 1 : -1);
+  };
+
+
+
+
 };
 

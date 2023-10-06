@@ -20,6 +20,8 @@ export class CustomerFormComponent {
   address: string = '';
   addressStatus: string | undefined = 'INVALID';
   updateDataMode: any = false;
+  formTitle: string = 'Add Customer';
+
 
   // error set 
   userNameError!: string;
@@ -28,7 +30,7 @@ export class CustomerFormComponent {
 
   // New Way To Show Validation 
   customerForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]),
     email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,80}$')]),
     status: new FormControl('Active', [Validators.required]),
   });
@@ -48,7 +50,8 @@ export class CustomerFormComponent {
     this.address = '';
     this.updateDataMode = false;
     this.submitFormBtn.nativeElement.innerHTML = 'Submit';
-    this.submitFormBtn.nativeElement.style.backgroundColor = ' #198754'
+    this.submitFormBtn.nativeElement.style.backgroundColor = 'var(--primary-platinum-color)';
+    this.formTitle = 'Add Customer';
   };
 
   // Address Data Add in Form 

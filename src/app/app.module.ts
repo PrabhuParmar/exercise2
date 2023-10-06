@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerFormComponent } from './customer/customer-form/customer-form.component';
 import { CustomerAddressComponent } from './customer/customer-form/customer-address/customer-address.component';
@@ -14,7 +14,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { CustomDataDirective } from './directive/custom-data.directive';
+import { CustomeDataComponent } from './custome-data/custome-data.component';
+import { ChangeTextColorComponent } from './change-text-color/change-text-color.component';
+import { ChangeTextColorDirective } from './directive/change-text-color.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     CustomerFormComponent,
     CustomerAddressComponent,
     CustomerDataDisplayComponent,
+    CustomDataDirective,
+    CustomeDataComponent,
+    ChangeTextColorComponent,
+    ChangeTextColorDirective,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSortModule,
     MatTableModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbTooltipModule
 
   ],
   providers: [],

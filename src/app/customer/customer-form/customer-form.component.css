@@ -21,6 +21,26 @@
     color: gray;
 }
 
+.modal-header {
+    border-bottom: none;
+    background-color: var(--primary-platinum-color);
+}
+
+.modal-footer {
+    border-top: none;
+    background-color: var(--primary-platinum-color);
+}
+
+.submit-btn {
+    border: 1px solid var(--primary-gray-color);
+}
+
+
+.submit-btn:disabled {
+    border: 1px solid var(--primary-gray-color);
+    background-color: var(--primary-gray-color) !important;
+}
+
 @media screen and (max-width:417px) {
     .customer-form-section .customer-form-container .customer-form {
         min-width: -webkit-fill-available;

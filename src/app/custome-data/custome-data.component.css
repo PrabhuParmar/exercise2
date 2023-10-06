@@ -1,0 +1,11 @@
+.customer-data {
+    height: 200px;
+    width: 100%;
+    background-color: red;
+}
+
+.customer-directive {
+    height: 200px;
+    width: 100%;
+    background-color: aqua;
+}

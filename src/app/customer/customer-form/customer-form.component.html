@@ -5,50 +5,49 @@
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="customer-form-section">
+                <div class="customer-form-container">
+                    <form class="customer-form " [formGroup]="customerForm">
+                        <div class="customer-form-title d-flex justify-content-center mb-3">
+                            <h1 class="form-title">{{formTitle}} </h1>
+                        </div>
+                        <div class="mb-3 customer-data">
+                            <label class="form-label">Enter Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Name" formControlName="name"
+                                #userNameValueData>
+                            <div id="emailHelp" class="form-text error-text"
+                                *ngIf="setNameValidation && setNameValidation.invalid && setNameValidation.touched">
+                                Enter Valid User name</div>
+                        </div>
+                        <div class="mb-3 customer-data">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" placeholder="Enter Email address"
+                                formControlName="email">
+                            <div id="emailHelp" class="form-text error-text"
+                                *ngIf="setEmailValidation && setEmailValidation.invalid && setEmailValidation.touched">
+                                Enter Valid Email Address </div>
+                        </div>
 
-            <div class="">
-                <div class="customer-form-section">
-                    <div class="customer-form-container">
-                        <form class="customer-form " [formGroup]="customerForm">
-                            <div class="customer-form-title d-flex justify-content-center mb-3">
-                                <h1 class="form-title">Customer Form</h1>
-                            </div>
-                            <div class="mb-3 customer-data">
-                                <label class="form-label">Enter Name</label>
-                                <input type="text" class="form-control" placeholder="Enter Name" formControlName="name"
-                                    #userNameValueData>
-                                <div id="emailHelp" class="form-text error-text"
-                                    *ngIf="setNameValidation && setNameValidation.invalid && setNameValidation.touched">
-                                    Enter A User Name</div>
-                            </div>
-                            <div class="mb-3 customer-data">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" placeholder="Enter Email address"
-                                    formControlName="email">
-                                <div id="emailHelp" class="form-text error-text"
-                                    *ngIf="setEmailValidation && setEmailValidation.invalid && setEmailValidation.touched">
-                                    Enter Valid Email Address </div>
-                            </div>
+                        <!-- address data set  -->
+                        <app-customer-address (addressData)="addressDataAdded($event)"></app-customer-address>
 
-                            <!-- address data set  -->
-                            <app-customer-address (addressData)="addressDataAdded($event)"></app-customer-address>
-
-                            <label class="form-label form-label-status">Status</label>
-                            <select class="form-select customer-data" formControlName="status">
-                                <option value="active" selected>active</option>
-                                <option value="inactive">inactive</option>
-                            </select>
-                        </form>
-                    </div>
+                        <label class="form-label form-label-status">Status</label>
+                        <select class="form-select customer-data" formControlName="status">
+                            <option value="active" selected>active</option>
+                            <option value="inactive">inactive</option>
+                        </select>
+                    </form>
                 </div>
             </div>
+
             <div class="modal-footer">
                 <div class="btn-section d-flex justify-content-center">
-                    <button type="submit" class="btn btn-success" (click)="submitCustomerData()" data-bs-dismiss="modal"
+                    <button type="submit" class="btn submit-btn" (click)="submitCustomerData()" data-bs-dismiss="modal"
                         [disabled]="customerForm.invalid || addressStatus !=='VALID'" #submitBtn>Submit</button>
+
                 </div>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                    (click)="resetForm()">Close</button>
+
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal" (click)="resetForm()">Close</button>
             </div>
 
         </div>

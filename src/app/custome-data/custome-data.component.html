@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1>make a one custom structural directive , which performs opposite of *ngIf directive.</h1>
+
+
+            <div class="">
+                <h1>NgIf Work</h1>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="defaultCheck1" [(ngModel)]="checkBoxData">
+                    <label>ngIf Work</label>
+                </div>
+
+                <div class="customer-data d-flex justify-content-center align-items-center" *ngIf="checkBoxData">
+                    <h1> ngIf Data Work</h1>
+                </div>
+                <div class="customer-directive d-flex justify-content-center align-items-center mt-2"
+                    *appCustomData="checkBoxData">
+                    <h1> custom Directive Work</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

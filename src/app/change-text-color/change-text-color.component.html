@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1>
+                Chanage Text Color On Radio Btn click
+            </h1>
+
+            <div>
+                <div class="form-check">
+                    <input class="form-check-input" (click)="onColorValue($event)" type="radio" name="flexRadioDefault"
+                        id="flexRadioDefault1" value="green">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Green
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" (click)="onColorValue($event)" type="radio" name="flexRadioDefault"
+                        id="flexRadioDefault2" value="yellow">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Yellow
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" (click)="onColorValue($event)" type="radio" name="flexRadioDefault"
+                        id="flexRadioDefault2" value="red">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        red
+                    </label>
+                </div>
+            </div>
+            <p class="Text-color" appChangeTextColor [highlightColor]="colorValue" [defaultColor]="'black'"> Text
+                Display On
+                selected Color </p>
+        </div>
+    </div>
+</div>

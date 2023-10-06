@@ -49,16 +49,28 @@
     display: flex;
     width: 221px;
     position: absolute;
-    right: 0;
+    right: 10px;
 }
 
 .customer-data-display-section .select-status-data .status-selected {
     height: 43px;
+    cursor: pointer;
 }
 
+.customer-data-display-section .customer-table-data .table-data .badge {
+    font-size: 12px;
+}
 
 .customer-data-display-section .add-customer-img {
-    height: 43px;
+    height: 29px;
+}
+
+.customer-data-display-section .add-new-customer {
+    transition: 0.2 ease;
+}
+
+.customer-data-display-section .add-new-customer:hover {
+    background-color: var(--primary-gray-color);
 }
 
 .modal-header {
@@ -66,15 +78,26 @@
     border-bottom: none;
 }
 
-.customer-data-display-section .empty-message-section .message {
-    color: var(--primary-red-color);
+.customer-data-display-section .empty-message-section {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+
 }
 
-.customer-data-display-section .sort-both-direction {
+.customer-data-display-section .empty-message-section .message {
     margin: 0;
-    position: absolute;
-    left: 45px;
     color: var(--primary-gray-color);
+
+}
+
+.customer-data-display-section .sort-img-icon {
+    height: 20px;
+    cursor: pointer;
+}
+
+.customer-data-display-section .customer-table-data .table-data {
+    vertical-align: baseline;
 }
 
 

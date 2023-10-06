@@ -1,7 +1,7 @@
 <!-- Customer Data Display section start  -->
 <div class="container-lg position-relative">
     <div class="row g-0 customer-data-display-section">
-        <div class="customer-data-heading-section d-flex flex-wrap justify-content-center align-items-center">
+        <div class="customer-data-heading-section d-flex flex-wrap justify-content-center align-items-center my-2">
             <span class="customer-data-table-heading">
                 <ng-container>
                     Customer List
@@ -9,38 +9,49 @@
             </span>
             <div class="d-flex select-status-data d-flex">
                 <select [(ngModel)]="selectedStatusData" (click)="onStatusDataFilter()"
-                    class="form-select status-selected">
+                    class="form-select status-selected me-2">
                     <option value="All" selected>All</option>
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive </option>
                 </select>
                 <div class="add-customer-section" data-bs-toggle="modal" data-bs-target="#customerFormModel"
                     (click)="addCustomerForm()">
-                    <img src="../../../assets/image/add-customer.png" alt=""
-                        class="add-customer-model add-customer-img">
+                    <button class="btn add-new-customer" ngbTooltip="Add Customer">
+                        <img src="../../../assets/image/add-customer.png" alt=""
+                            class="add-customer-model add-customer-img">
+                    </button>
                 </div>
             </div>
         </div>
         <div class="col-12 g-0 customer-data-container">
             <div class="table-responsive g-0">
-                <table class="table table table-striped" matSort (matSortChange)="sortNameData($event)">
+                <table class="table table table-striped">
                     <thead class="table-dark">
                         <tr>
                             <th scope="col" class="index-title">Index</th>
-                            <th scope="col" class="name-title" mat-sort-header="name">
+                            <th scope="col" class="name-title d-flex">
                                 Name
-                                <p *ngIf="sortDirection =='' " class="sort-both-direction"> ⇅ </p>
+                                <div (click)="sortingDirection(sortingDirectionData= !sortingDirectionData)"
+                                    class="ms-1">
+                                    <img src="../../../assets/image/sorting-arrow.png" alt=""
+                                        *ngIf="nameSortingValue =='empty' " class="sort-img-icon">
+                                    <img src="../../../assets/image/arrow-down.png" alt=""
+                                        *ngIf="sortingDirectionData ==true " class="sort-img-icon">
+                                    <img src="../../../assets/image/arrow-up.png" alt=""
+                                        *ngIf="sortingDirectionData ==false " class="sort-img-icon">
+                                </div>
                             </th>
                             <th scope="col" class="email-title">Email</th>
                             <th scope="col" class="address-title">Address</th>
                             <th scope="col" class="status-title">Status</th>
-                            <th scope="col" class="edit-btn">Edit</th>
+                            <th scope="col" class="edit-btn">Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <tr *ngFor="let customer of customerDataCollection let index" #tableRow>
-                            <td> {{customer.id}} </td>
+                        <tr *ngFor="let customer of customerDataCollection let index" #tableRow
+                            class="customer-table-data">
+                            <td class="table-data"> <span>{{customer.id}}</span> </td>
                             <td class="table-data">
                                 {{customer.name}} </td>
                             <td class="table-data">{{customer.email}}</td>
@@ -49,9 +60,11 @@
                                 <span class="badge"
                                     [style.background-color]="customer.status==='active' ? 'green' : 'red'">{{customer.status}}</span>
                             </td>
-                            <td>
-                                <button type="button" class="btn btn-success" (click)="editCustomerData(index)"
-                                    data-bs-toggle="modal" data-bs-target="#customerFormModel">Edit</button>
+                            <td class="table-data">
+                                <button type="button" class="btn edit-btn" (click)="editCustomerData(index)"
+                                    data-bs-toggle="modal" data-bs-target="#customerFormModel" ngbTooltip="Edit">
+                                    <img src="../../../assets/image/edit.png" alt="">
+                                </button>
                             </td>
                         </tr>
                     </tbody>
