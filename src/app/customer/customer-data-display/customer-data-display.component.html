@@ -1,7 +1,7 @@
 <!-- Customer Data Display section start  -->
 <div class="container-lg position-relative">
     <div class="row g-0 customer-data-display-section">
-        <div class="customer-data-heading-section d-flex flex-wrap justify-content-center align-items-center my-2">
+        <div class="customer-data-heading-section d-flex flex-wrap justify-content-center align-items-center my-4">
             <span class="customer-data-table-heading">
                 <ng-container>
                     Customer List
@@ -9,7 +9,7 @@
             </span>
             <div class="d-flex select-status-data d-flex">
                 <select [(ngModel)]="selectedStatusData" (click)="onStatusDataFilter()"
-                    class="form-select status-selected me-2">
+                    class="form-select status-selected me-3">
                     <option value="All" selected>All</option>
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive </option>
@@ -29,17 +29,19 @@
                     <thead class="table-dark">
                         <tr>
                             <th scope="col" class="index-title">Index</th>
-                            <th scope="col" class="name-title d-flex">
-                                Name
-                                <div (click)="sortingDirection(sortingDirectionData= !sortingDirectionData)"
-                                    class="ms-1">
-                                    <img src="../../../assets/image/sorting-arrow.png" alt=""
-                                        *ngIf="nameSortingValue =='empty' " class="sort-img-icon">
-                                    <img src="../../../assets/image/arrow-down.png" alt=""
-                                        *ngIf="sortingDirectionData ==true " class="sort-img-icon">
-                                    <img src="../../../assets/image/arrow-up.png" alt=""
-                                        *ngIf="sortingDirectionData ==false " class="sort-img-icon">
-                                </div>
+                            <th scope="col" class="name-title">
+                                <span class=" d-flex">
+                                    Name
+                                    <div (click)="sortingDirection(sortingDirectionData= !sortingDirectionData)"
+                                        class="ms-1">
+                                        <img src="../../../assets/image/sorting-arrow.png" alt=""
+                                            *ngIf="nameSortingValue =='empty' " class="sort-img-icon">
+                                        <img src="../../../assets/image/arrow-down.png" alt=""
+                                            *ngIf="sortingDirectionData ==true " class="sort-img-icon">
+                                        <img src="../../../assets/image/arrow-up.png" alt=""
+                                            *ngIf="sortingDirectionData ==false " class="sort-img-icon">
+                                    </div>
+                                </span>
                             </th>
                             <th scope="col" class="email-title">Email</th>
                             <th scope="col" class="address-title">Address</th>
@@ -61,10 +63,9 @@
                                     [style.background-color]="customer.status==='active' ? 'green' : 'red'">{{customer.status}}</span>
                             </td>
                             <td class="table-data">
-                                <button type="button" class="btn edit-btn" (click)="editCustomerData(index)"
-                                    data-bs-toggle="modal" data-bs-target="#customerFormModel" ngbTooltip="Edit">
-                                    <img src="../../../assets/image/edit.png" alt="">
-                                </button>
+                                <img src="../../../assets/image/edit.png" alt="" class="edit-table-data-btn"
+                                    (click)="editCustomerData(index)" data-bs-toggle="modal"
+                                    data-bs-target="#customerFormModel" placement="end left" ngbTooltip="Edit">
                             </td>
                         </tr>
                     </tbody>

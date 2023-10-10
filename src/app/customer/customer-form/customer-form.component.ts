@@ -22,7 +22,6 @@ export class CustomerFormComponent {
   updateDataMode: any = false;
   formTitle: string = 'Add Customer';
 
-
   // error set 
   userNameError!: string;
   emailaddressError!: string;

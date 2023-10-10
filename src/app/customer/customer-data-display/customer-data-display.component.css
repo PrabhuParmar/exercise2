@@ -38,10 +38,10 @@
 }
 
 .customer-data-display-section .customer-data-container .edit-btn {
-    min-width: 80px;
+    min-width: 60px;
 }
 
-.model-close {
+.customer-data-display-section .model-close {
     height: 50px;
 }
 
@@ -101,6 +101,10 @@
 }
 
 
+.customer-data-display-section .edit-table-data-btn {
+    cursor: pointer;
+}
+
 @media screen and (max-width:414px) {
     .customer-data-display-section .customer-data-table-heading {
         font-size: 25px;
@@ -110,7 +114,7 @@
 
 }
 
-@media screen and (max-width:686px) {
+@media screen and (max-width:711px) {
 
     .customer-data-display-section .select-status-data {
         position: relative;
@@ -120,6 +124,7 @@
 
     .customer-data-display-section .select-status-data .status-selected {
         max-width: 200px;
+        margin-left: 20px;
     }
 
     .customer-data-display-section .customer-data-heading-section {

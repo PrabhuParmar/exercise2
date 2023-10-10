@@ -18,6 +18,7 @@ export class CustomerAddressComponent {
     this.address = this.customerFormData.value.address;
     this.addressData.emit(this.address);
   }
+
   // Customer Address Data 
   customerFormData = new FormGroup({
     address: new FormControl('', [Validators.required])

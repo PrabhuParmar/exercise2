@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, OnChanges, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { Directive, HostListener, Input, ElementRef, ViewChild } from '@angular/core';
 import { ChangeTextColorComponent } from '../change-text-color/change-text-color.component';
 
 @Directive({
@@ -14,13 +14,14 @@ export class ChangeTextColorDirective {
   constructor(element: ElementRef) {
     this.textValue = element.nativeElement.style
   }
-
+  // MouseEnter on Text 
   @HostListener('mouseenter') onMouseEnter() {
-    this.textValue.color = this.highlightColor
-  }
+    this.textValue.color = this.highlightColor;
+  };
+  // MouseLeave the Text 
   @HostListener('mouseleave') onMouseLeave() {
-    this.textValue.color = this.defaultColor
-  }
+    this.textValue.color = this.defaultColor;
+  };
 
 
 }
