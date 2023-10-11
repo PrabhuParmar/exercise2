@@ -18,27 +18,35 @@
 }
 
 .customer-form-section .customer-form-container .form-label-status {
-    color: gray;
+    color: var(--primary-gray-color);
 }
 
-.modal-header {
+.modal .modal-header {
     border-bottom: none;
     background-color: var(--primary-platinum-color);
 }
 
-.modal-footer {
+.modal .modal-footer {
     border-top: none;
     background-color: var(--primary-platinum-color);
 }
 
-.submit-btn {
+.modal .submit-btn {
     border: 1px solid var(--primary-gray-color);
 }
 
+.modal .submit-btn:hover {
+    background-color: var(--primary-light-gray-color) !important;
 
-.submit-btn:disabled {
+}
+
+.modal .submit-btn:disabled {
     border: 1px solid var(--primary-gray-color);
     background-color: var(--primary-gray-color) !important;
+}
+
+.model {
+    height: 200px;
 }
 
 @media screen and (max-width:417px) {

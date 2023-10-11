@@ -15,8 +15,8 @@
                     <option value="Inactive">Inactive </option>
                 </select>
                 <div class="add-customer-section" data-bs-toggle="modal" data-bs-target="#customerFormModel"
-                    (click)="addCustomerForm()">
-                    <button class="btn add-new-customer" ngbTooltip="Add Customer">
+                    (click)="resetCustomerForm()">
+                    <button class="btn add-new-customer" placement="bottom start" ngbTooltip="Add customer">
                         <img src="../../../assets/image/add-customer.png" alt=""
                             class="add-customer-model add-customer-img">
                     </button>
@@ -64,7 +64,7 @@
                             </td>
                             <td class="table-data">
                                 <img src="../../../assets/image/edit.png" alt="" class="edit-table-data-btn"
-                                    (click)="editCustomerData(index)" data-bs-toggle="modal"
+                                    (click)="setEditCustomerData(index)" data-bs-toggle="modal"
                                     data-bs-target="#customerFormModel" placement="end left" ngbTooltip="Edit">
                             </td>
                         </tr>

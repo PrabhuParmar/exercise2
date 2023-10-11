@@ -1,11 +1,9 @@
-.customer-data {
+.custome-data-section .customer-data-content .customer-data {
     height: 200px;
-    width: 100%;
-    background-color: red;
+    background-color: var(--primary-red-color);
 }
 
-.customer-directive {
+.custome-data-section .customer-data-content .customer-directive {
     height: 200px;
-    width: 100%;
-    background-color: aqua;
+    background-color: var(--primary-blue-color);
 }

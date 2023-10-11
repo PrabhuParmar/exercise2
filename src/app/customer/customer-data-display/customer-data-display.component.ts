@@ -18,14 +18,13 @@ export class CustomerDataDisplayComponent {
   customerDataCollection: customerInterface[] = [];
   selectedData!: customerInterface;
   customerNewData: customerInterface[] = [];
-  filterData: customerInterface[] = [];
   selectedStatusData = 'All';
   sortingDirectionData!: boolean | any;
   nameSortingValue: string = 'empty';
 
 
   // customer Data store In array of Object
-  customerDataAdded = (customerData: customerInterface) => {
+  addCustomer = (customerData: customerInterface) => {
     this.id = this.customerNewData.length + 1;
     let customeFormData = {
       id: this.id,
@@ -35,13 +34,12 @@ export class CustomerDataDisplayComponent {
       status: customerData.status,
     };
     this.customerNewData.push(customeFormData);
-    this.customerDataCollection = this.customerNewData;
     this.onStatusDataFilter();
   };
 
 
   // Selected Customer Data Set in Form 
-  editCustomerData = (selected: customerInterface) => {
+  setEditCustomerData = (selected: customerInterface) => {
     this.customerForm.updateDataMode = true;
     this.customerForm.submitFormBtn.nativeElement.innerHTML = 'Update';
     this.customerForm.submitFormBtn.nativeElement.style.backgroundColor = 'var(--primary-platinum-color)';
@@ -68,16 +66,15 @@ export class CustomerDataDisplayComponent {
     };
     this.customerNewData.splice(selectedData.id - 1, 1, newCustomerData);
     this.customerDataCollection = this.customerNewData;
-    this.sortNameData();
     this.onStatusDataFilter();
   };
 
   submitData = (customerData: customerInterface) => {
-    this.customerForm.updateDataMode === true ? this.updateCustomerData(this.selectedData) : this.customerDataAdded(customerData);
+    this.customerForm.updateDataMode === true ? this.updateCustomerData(this.selectedData) : this.addCustomer(customerData);
     this.customerForm.updateDataMode = false;
   };
 
-  addCustomerForm = () => {
+  resetCustomerForm = () => {
     this.customerForm.resetForm();
   };
 
@@ -91,8 +88,6 @@ export class CustomerDataDisplayComponent {
   };
 
   sortNameData = () => {
-    this.customerDataCollection = this.filterData;
-
     this.sortingDirectionData == undefined ? '' : this.sortingDirectionData === true ? this.customerDataCollection.sort((current, next) => (current.name.toUpperCase() < next.name.toUpperCase() ? -1 : 1)) : this.customerDataCollection.sort((current, next) => (current.name.toUpperCase() < next.name.toUpperCase() ? 1 : -1));
   };
 
@@ -101,10 +96,10 @@ export class CustomerDataDisplayComponent {
   onStatusDataFilter = () => {
     let status = this.selectedStatusData;
     this.customerDataCollection = this.customerNewData;
-    this.filterData = this.customerDataCollection.filter((item) => {
+    let filterData = this.customerDataCollection.filter((item) => {
       return status === 'All' ? this.customerDataCollection : item.status.toLowerCase() === status.toLowerCase();
     });
-    this.customerDataCollection = this.filterData;
+    this.customerDataCollection = filterData;
 
     this.sortNameData();
   };
