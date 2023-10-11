@@ -45,9 +45,7 @@
     background-color: var(--primary-gray-color) !important;
 }
 
-.model {
-    height: 200px;
-}
+
 
 @media screen and (max-width:417px) {
     .customer-form-section .customer-form-container .customer-form {
