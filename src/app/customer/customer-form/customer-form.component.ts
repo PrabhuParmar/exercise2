@@ -21,7 +21,7 @@ export class CustomerFormComponent {
   addressStatus: string | undefined = 'INVALID';
   updateDataMode: any = false;
   formTitle: string = 'Add Customer';
-
+  btnValue: string = 'Submit';
   // error set 
   userNameError!: string;
   emailaddressError!: string;
@@ -48,8 +48,7 @@ export class CustomerFormComponent {
     this.customerAddress.customerFormData.reset();
     this.address = '';
     this.updateDataMode = false;
-    this.submitFormBtn.nativeElement.innerHTML = 'Submit';
-    this.submitFormBtn.nativeElement.style.backgroundColor = 'var(--primary-platinum-color)';
+    this.btnValue = 'submit'
     this.formTitle = 'Add Customer';
   };
 

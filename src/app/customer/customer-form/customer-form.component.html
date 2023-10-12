@@ -43,7 +43,8 @@
             <div class="modal-footer">
                 <div class="btn-section d-flex justify-content-center">
                     <button type="submit" class="btn submit-btn" (click)="submitCustomerData()" data-bs-dismiss="modal"
-                        [disabled]="customerForm.invalid || addressStatus !=='VALID'" #submitBtn>Submit</button>
+                        [disabled]="customerForm.invalid || addressStatus !=='VALID'" #submitBtn
+                        [style.background-color]="updateDataMode===false ? 'var(--primary-platinum-color)'  : 'var(--primary-platinum-color)'">{{btnValue}}</button>
 
                 </div>
 

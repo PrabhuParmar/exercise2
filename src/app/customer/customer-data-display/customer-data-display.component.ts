@@ -41,8 +41,8 @@ export class CustomerDataDisplayComponent {
   // Selected Customer Data Set in Form 
   setEditCustomerData = (selected: customerInterface) => {
     this.customerForm.updateDataMode = true;
-    this.customerForm.submitFormBtn.nativeElement.innerHTML = 'Update';
-    this.customerForm.submitFormBtn.nativeElement.style.backgroundColor = 'var(--primary-platinum-color)';
+
+    this.customerForm.btnValue = 'Update'
     this.customerForm.formTitle = "Edit Customer";
     this.customerForm.customerForm.setValue({
       name: selected.name,
